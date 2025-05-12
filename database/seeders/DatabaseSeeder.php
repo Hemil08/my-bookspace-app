@@ -15,9 +15,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $this->call([
+            CategorySeeder::class,
+        ]);
+
+        \App\Models\Space::factory(10)->create();
+
+        \App\Models\Booking::factory(10)->create();
     }
 }
